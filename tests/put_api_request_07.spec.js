@@ -67,4 +67,6 @@ test("create PUT API request in Playwright", async ({ request }) => {
 
   const putResponseBody = await putResponse.json();
   console.log("PUT API Response:", putResponseBody);
+  //Validate status
+  expect(putResponse.status()).toBe(200)
 });
