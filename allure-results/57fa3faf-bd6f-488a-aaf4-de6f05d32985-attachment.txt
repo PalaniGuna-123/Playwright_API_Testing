@@ -1,0 +1,11 @@
+{
+  bookingid: 4719,
+  booking: {
+    firstname: 'Agustin',
+    lastname: 'Jakubowski',
+    totalprice: 969,
+    depositpaid: true,
+    bookingdates: { checkin: '2025-03-24', checkout: '2025-03-29' },
+    additionalneeds: 'super bowls'
+  }
+}

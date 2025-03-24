@@ -21,9 +21,12 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 1 : 5,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [
+    ['html'],
+    ['allure-playwright']
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -31,25 +34,28 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    video:'on',
+    screenshot:'on',
+    headless: false
   },
 
   /* Configure projects for major browsers */
-  // projects: [
+  projects: [
     
-    // {
-    //   name: 'chromium',
-    //   use: { ...devices['Desktop Chrome'] },
-    // },
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+    },
 
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
 
-    // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
-    // },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+    },
 
     /* Test against mobile viewports. */
     // {
@@ -70,7 +76,7 @@ export default defineConfig({
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
-  // ],
+   ],
 
   /* Run your local dev server before starting the tests */
   // webServer: {
@@ -81,13 +87,13 @@ export default defineConfig({
 // });
 
 // export default defineConfig({
-  projects: [
-    {
-      name: 'Microsoft Edge',
-      use: { 
-        ...devices['Desktop Edge'], 
-        channel: 'msedge' // Ensures tests run in Edge
-      },
-    },
-  ],
+  // projects: [
+  //   {
+  //     name: 'Microsoft Edge',
+  //     use: { 
+  //       ...devices['Desktop Edge'], 
+  //       channel: 'msedge' // Ensures tests run in Edge
+  //     },
+  //   },
+  // ],
 });

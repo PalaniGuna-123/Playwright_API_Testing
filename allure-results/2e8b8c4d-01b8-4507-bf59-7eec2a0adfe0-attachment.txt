@@ -1,0 +1,11 @@
+{
+  bookingid: 4895,
+  booking: {
+    firstname: 'Luella',
+    lastname: 'McDermott',
+    totalprice: 861,
+    depositpaid: true,
+    bookingdates: { checkin: '2025-03-24', checkout: '2025-03-29' },
+    additionalneeds: 'super bowls'
+  }
+}

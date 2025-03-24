@@ -1,0 +1,35 @@
+======= POST API =======
+{
+  bookingid: 4903,
+  booking: {
+    firstname: 'testers talk cypress',
+    lastname: 'testers talk javascript',
+    totalprice: 1000,
+    depositpaid: true,
+    bookingdates: { checkin: '2018-01-01', checkout: '2019-01-01' },
+    additionalneeds: 'apple'
+  }
+}
+======== GET API ========
+{
+  firstname: 'testers talk cypress',
+  lastname: 'testers talk javascript',
+  totalprice: 1000,
+  depositpaid: true,
+  bookingdates: { checkin: '2018-01-01', checkout: '2019-01-01' },
+  additionalneeds: 'apple'
+}
+======== Generate Token ========
+Token No is: 66d95b36a37b0d9
+====== PUT API ======
+PUT Request Body: {
+  "firstname": "postman by testers talk",
+  "lastname": "rest assured by testers talk",
+  "totalprice": 111,
+  "deopsitpaid": true,
+  "bookingdates": {
+    "checkin": "2018-01-01",
+    "checkout": "2019-01-01"
+  },
+  "additionalneeeds": "super bowls"
+}

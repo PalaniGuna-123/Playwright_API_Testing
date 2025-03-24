@@ -1,0 +1,111 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: create  DELETE API request in Playwright
+- Location: C:\Playwright_API_testing\tests\endtoend_testing_09.spec.js:8:1
+
+# Error details
+
+```
+Error: expect(received).toEqual(expected) // deep equality
+
+Expected: 201
+Received: 403
+    at C:\Playwright_API_testing\tests\endtoend_testing_09.spec.js:82:45
+```
+
+# Test source
+
+```ts
+   1 | const { test, expect } = require('@playwright/test');
+   2 | const bookingAPIRequestBody = require('../test-data/post_dynamic_request_body.json');
+   3 | const putRequestBody = require('../test-data/put_request_body.json');
+   4 | const tokenRequestBody = require('../test-data/token_request_body.json');
+   5 | import { stringFormat } from '../utils/common';
+   6 | const patchRequestBody = require('../test-data/patch_request_body.json')
+   7 |
+   8 | test("create  DELETE API request in Playwright", async ({ request }) => {
+   9 |   const dynamicRequestBody = stringFormat(
+  10 |     JSON.stringify(bookingAPIRequestBody),
+  11 |     "testers talk cypress",
+  12 |     "testers talk javascript",
+  13 |     "apple"
+  14 |   );
+  15 |
+  16 |   console.log("======= POST API =======");
+  17 |   const postAPIResponse = await request.post(`/booking`, {
+  18 |     data: JSON.parse(dynamicRequestBody),
+  19 |   });
+  20 |
+  21 |   expect(postAPIResponse.ok()).toBeTruthy();
+  22 |   expect(postAPIResponse.status()).toBe(200);
+  23 |   const postAPIResponseBody = await postAPIResponse.json();
+  24 |   console.log(postAPIResponseBody);
+  25 |
+  26 |   const bID = postAPIResponseBody.bookingid;
+  27 |
+  28 |   console.log("======== GET API ========");
+  29 |   const getAPIResponse = await request.get(`/booking/${bID}`);
+  30 |   console.log(await getAPIResponse.json());
+  31 |
+  32 |   expect(getAPIResponse.ok()).toBeTruthy();
+  33 |   expect(getAPIResponse.status()).toBe(200);
+  34 |
+  35 |   console.log("======== Generate Token ========");
+  36 |   const tokenResponse = await request.post(`/auth`, { data: tokenRequestBody });
+  37 |
+  38 |   if (!tokenResponse.ok()) {
+  39 |     console.error("Failed to generate token.");
+  40 |     return;
+  41 |   }
+  42 |
+  43 |   const tokenAPIResponseBody = await tokenResponse.json();
+  44 |   const tokenNo = tokenAPIResponseBody.token;
+  45 |   console.log("Token No is:", tokenNo);
+  46 |
+  47 |   if (!tokenNo) {
+  48 |     console.error("Invalid token. Exiting...");
+  49 |     return;
+  50 |   }
+  51 |
+  52 |   console.log("====== PARCH API ======");
+  53 |   console.log("PUT Request Body:", JSON.stringify(putRequestBody, null, 2));
+  54 |
+  55 |   const PatchAPIResponse = await request.patch(`/booking/${bID}`, {
+  56 |     headers: {
+  57 |       "Content-Type": "application/json",
+  58 |       "Cookie": `token=${tokenNo}`,
+  59 |     },
+  60 |     data: patchRequestBody,
+  61 |   });
+  62 |
+  63 |   if (!PatchAPIResponse.ok()) {
+  64 |     const errorText = await PatchAPIResponse.text();
+  65 |     console.error("PUT API Error:", errorText);
+  66 |     return;
+  67 |   }
+  68 |
+  69 |   const PatchResponseBody = await PatchAPIResponse.json();
+  70 |   console.log("PATCH  API Response:", PatchResponseBody);
+  71 |   //Validate status
+  72 |   expect(PatchAPIResponse.status()).toBe(200)
+  73 |
+  74 | console.log("=============DELETE API =============")
+  75 | // DELETE API CALL
+  76 |    const deleteAPIResponse = await request.delete(`/booking/${bID}`,{
+  77 |        headers: {
+  78 |         "Content-Type" : "application/json",
+  79 |         "Cookies" : `token=${tokenNo}`
+  80 |        }
+  81 |    })
+> 82 |    await expect(deleteAPIResponse.status()).toEqual(201)
+     |                                             ^ Error: expect(received).toEqual(expected) // deep equality
+  83 |    await expect(deleteAPIResponse.statusText()).toBe('Created')
+  84 |
+  85 | });
+```

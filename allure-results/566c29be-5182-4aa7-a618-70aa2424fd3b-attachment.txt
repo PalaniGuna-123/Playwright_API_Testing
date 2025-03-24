@@ -1,0 +1,11 @@
+{
+  bookingid: 4801,
+  booking: {
+    firstname: 'Brycen',
+    lastname: 'Torp',
+    totalprice: 951,
+    depositpaid: true,
+    bookingdates: { checkin: '2025-03-24', checkout: '2025-03-29' },
+    additionalneeds: 'super bowls'
+  }
+}

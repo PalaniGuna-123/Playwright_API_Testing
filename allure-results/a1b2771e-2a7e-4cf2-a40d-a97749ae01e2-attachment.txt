@@ -1,0 +1,22 @@
+{
+  bookingid: 4806,
+  booking: {
+    firstname: 'testers talk cypress',
+    lastname: 'testers talk javascript',
+    totalprice: 1000,
+    depositpaid: true,
+    bookingdates: { checkin: '2018-01-01', checkout: '2019-01-01' },
+    additionalneeds: 'apple'
+  }
+}
+==========================
+[
+  { bookingid: 4777 },
+  { bookingid: 4701 },
+  { bookingid: 4800 },
+  { bookingid: 4717 },
+  { bookingid: 4807 },
+  { bookingid: 4722 },
+  { bookingid: 4806 },
+  { bookingid: 4714 }
+]

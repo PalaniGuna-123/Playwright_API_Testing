@@ -1,0 +1,188 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: test
+- Location: C:\Playwright_API_testing\tests\example.spec.js:3:5
+
+# Error details
+
+```
+Error: locator.click: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for getByRole('link', { name: 'profile' })
+    - locator resolved to <a href="#" id="profileLink">…</a>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+
+    at C:\Playwright_API_testing\tests\example.spec.js:5:53
+```
+
+# Page snapshot
+
+```yaml
+- banner:
+  - link "website logo":
+    - img "website logo"
+  - navigation:
+    - textbox "search...."
+    - link "Wishlist"
+    - link "Subscribe"
+    - link "profile":
+      - img "profile"
+- article:
+  - group "1 / 5":
+    - img "The Exorcist"
+    - heading "The Exorcist" [level=1]
+    - text: 1hr 50mins 1973 4.5/5
+    - paragraph: The Exorcism tells the story of Anthony Miller, an actor who starts acting strangely while working on a horror movie. His daughter Lee notices his odd behavior and fears something evil might be involved. As things get worse, Lee teams up with a priest to save her father from a dark force. The battle against the demon pushes them to their limits, leading to a dramatic exorcism. It's a story about family, faith, and fighting against evil.
+    - button "Watch now"
+    - button "+"
+  - group "2 / 5":
+    - img "The Conjuring"
+    - heading "The Conjuring" [level=1]
+    - text: 1hr 53mins 2013 4/5
+    - paragraph: The Conjuring follows Ed and Lorraine Warren, paranormal investigators, as they help the Perron family, who are haunted by dark forces in their new farmhouse. Strange events escalate, and the Warrens discover the house is cursed by an evil spirit named Bathsheba. The spirit possesses the mother, Carolyn, and attempts to harm the family. With faith and determination, the Warrens perform an exorcism to save Carolyn and defeat the spirit, restoring peace to the family.
+    - button "Watch now"
+    - button "+"
+  - group "3 / 5":
+    - img "The Ring"
+    - heading "The Ring" [level=1]
+    - text: 1hr 55mins 2002 3.4/5
+    - paragraph: A cursed videotape causes anyone who watches it to die seven days later. Journalist Rachel investigates the mysterious deaths linked to the tape and uncovers the tragic story of Samara, a girl with psychic abilities who was killed by her mother. Rachel discovers the way to survive is by copying the tape and showing it to someone else. The cycle of horror continues as she grapples with the consequences of her actions..
+    - button "Watch now"
+    - button "+"
+  - group "4 / 5":
+    - img "Halloween"
+    - heading "Halloween" [level=1]
+    - text: 1hr 31mins 1978 3.2/5
+    - paragraph: On Halloween night in 1963, six-year-old Michael Myers murders his sister and is institutionalized. Fifteen years later, he escapes and returns to his hometown of Haddonfield to stalk and kill teenagers, including babysitter Laurie Strode. As his psychiatrist Dr. Loomis hunts him, Michael methodically targets his victims with relentless precision. Laurie fights back, narrowly surviving multiple attacks. The film ends with Michael mysteriously vanishing after being shot, leaving his evil presence lingering.
+    - button "Watch now"
+    - button "+"
+  - group "5 / 5":
+    - img "The Curse of La Llorona"
+    - heading "The Curse of La Llorona" [level=1]
+    - text: 1hr 33mins 2019 2.7/5
+    - paragraph: In 1973 Los Angeles, a social worker and her children are haunted by La Llorona, a malevolent spirit from Latin American folklore. As the curse threatens their lives, they seek the help of a former priest turned shaman to confront the entity. Together, they uncover the spirit's tragic past and battle to break the curse.
+    - button "Watch now"
+    - button "+"
+  - button "Next slide": next
+  - button "Previous slide": prev
+  - heading "TOP RATED MOVIES" [level=2]
+  - link "The Exorcist":
+    - img "The Exorcist"
+  - link "The Conjuring":
+    - img "The Conjuring"
+  - link "IT":
+    - img "IT"
+  - link "A Quiet Place":
+    - img "A Quiet Place"
+  - link "The Conjuring 2":
+    - img "The Conjuring 2"
+  - link "Veronica":
+    - img "Veronica"
+  - 'link "Annabelle: Creation"':
+    - 'img "Annabelle: Creation"'
+  - link "The Babadook":
+    - img "The Babadook"
+  - heading "BASED ON REAL STORIES" [level=2]
+  - link "The Amityville Horror":
+    - img "The Amityville Horror"
+  - link "The Conjuring 2":
+    - img "The Conjuring 2"
+  - link "The Curse of La Llorona":
+    - img "The Curse of La Llorona"
+  - link "Veronica":
+    - img "Veronica"
+  - 'link "Annabelle: Creation"':
+    - 'img "Annabelle: Creation"'
+  - link "Scream":
+    - img "Scream"
+  - heading "RECOMMENDED" [level=2]
+  - link "The Exorcist":
+    - img "The Exorcist"
+  - link "The Conjuring":
+    - img "The Conjuring"
+  - link "The Ring":
+    - img "The Ring"
+  - link "Halloween":
+    - img "Halloween"
+  - link "Sinister":
+    - img "Sinister"
+  - link "Insidious":
+    - img "Insidious"
+  - link "IT":
+    - img "IT"
+  - link "Demonte Colony":
+    - img "Demonte Colony"
+  - link "Arunthathi":
+    - img "Arunthathi"
+  - link "Annabelle":
+    - img "Annabelle"
+  - link "Final Destination 4":
+    - img "Final Destination 4"
+  - link "A Quiet Place":
+    - img "A Quiet Place"
+  - link "Maya":
+    - img "Maya"
+  - link "Megalomaniac":
+    - img "Megalomaniac"
+  - link "Thirteen Ghosts":
+    - img "Thirteen Ghosts"
+  - link "Ghoul":
+    - img "Ghoul"
+  - link "The Crucifixion":
+    - img "The Crucifixion"
+  - link "The Babadook":
+    - img "The Babadook"
+  - link "The Grudge":
+    - img "The Grudge"
+  - text: ^
+- contentinfo:
+  - img "Kimii Horror Logo"
+  - paragraph: © Kimii Horror 2024
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from '@playwright/test';
+   2 |
+   3 | test('test', async ({ page }) => {
+   4 |   await page.goto('https://cheerful-beignet-68699c.netlify.app/');
+>  5 |   await page.getByRole('link', { name: 'profile' }).click();
+     |                                                     ^ Error: locator.click: Test timeout of 30000ms exceeded.
+   6 |   await page.getByRole('link', { name: 'Login' }).click();
+   7 |   await page.getByRole('link', { name: 'click here' }).click();
+   8 |   await page.locator('#name').click();
+   9 |   await page.locator('#name').fill('hire');
+  10 |   await page.locator('#email').click();
+  11 |   await page.locator('#email').fill('hire@gmail.com');
+  12 |   await page.locator('#password').click();
+  13 |   await page.locator('#password').fill('Doller@?2004');
+  14 |   await page.getByText('Show').first().click();
+  15 |   await page.locator('#password').click();
+  16 |   await page.locator('#password').press('ControlOrMeta+a');
+  17 |   await page.locator('#password').press('ControlOrMeta+c');
+  18 |   await page.locator('#confirmPassword').click();
+  19 |   await page.locator('#confirmPassword').fill('Doller@?2004');
+  20 |   page.once('dialog', dialog => {
+  21 |     console.log(`Dialog message: ${dialog.message()}`);
+  22 |     dialog.dismiss().catch(() => {});
+  23 |   });
+  24 |   await page.getByRole('button', { name: 'submit' }).click();
+  25 |   await page.goto('https://cheerful-beignet-68699c.netlify.app/index.html');
+  26 |   await page.locator('#top_10MoviesContainer').getByRole('link', { name: 'The Exorcist' }).click();
+  27 |   await page.getByRole('button', { name: 'Watch now' }).click();
+  28 |   await page.goto('https://cheerful-beignet-68699c.netlify.app/details.html?id=1&movie_name=The%20Exorcist');
+  29 |   await page.getByRole('textbox', { name: 'search....' }).click();
+  30 |   await page.getByRole('textbox', { name: 'search....' }).fill('the');
+  31 |   await page.getByRole('heading', { name: 'The Conjuring', exact: true }).click();
+  32 |   await page.getByRole('button', { name: '+' }).click();
+  33 |   await page.getByRole('link', { name: 'Wishlist' }).click();
+  34 | });
+```

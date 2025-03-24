@@ -5,7 +5,7 @@ const tokenRequestBody = require('../test-data/token_request_body.json');
 import { stringFormat } from '../utils/common';
 const patchRequestBody = require('../test-data/patch_request_body.json')
 
-test("create PUT API request in Playwright", async ({ request }) => {
+test("create  DELETE API request in Playwright", async ({ request }) => {
   const dynamicRequestBody = stringFormat(
     JSON.stringify(bookingAPIRequestBody),
     "testers talk cypress",
@@ -71,5 +71,15 @@ test("create PUT API request in Playwright", async ({ request }) => {
   //Validate status
   expect(PatchAPIResponse.status()).toBe(200)
 
+console.log("=============DELETE API =============")
+// DELETE API CALL
+   const deleteAPIResponse = await request.delete(`/booking/${bID}`,{
+       headers: {
+        "Content-Type" : "application/json",
+        "Cookies" : `token=${tokenNo}`
+       }
+   })
+   await expect(deleteAPIResponse.status()).toEqual(201)
+   await expect(deleteAPIResponse.statusText()).toBe('Created')
 
 });
